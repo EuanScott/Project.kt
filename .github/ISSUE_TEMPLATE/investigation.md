@@ -2,8 +2,9 @@
 name: Investigation
 about: How can I do this?
 title: ''
-labels: 'investigation'
+labels: ''
 assignees: ''
+project: The Forge
 
 ---
 

@@ -2,8 +2,9 @@
 name: Feature
 about: What would I like to build?
 title: ''
-labels: enhancement
+labels: 
 assignees: ''
+project: The Forge
 
 ---
 
