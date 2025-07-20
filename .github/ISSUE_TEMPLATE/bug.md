@@ -2,9 +2,9 @@
 name: Bug
 about: What is broken?
 title: ''
-labels: 
+labels: ''
 assignees: ''
-project: The Forge
+project: ''
 
 ---
 

@@ -2,9 +2,9 @@
 name: Enhancement
 about: How can I improve on what is already built?
 title: ''
-labels: 
+labels: ''
 assignees: ''
-project: The Forge
+project: ''
 
 ---
 
