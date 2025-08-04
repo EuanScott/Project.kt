@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="loading">Laai…</string>
+    <string name="error_message_header">Kan nie verbind nie</string>
+    <string name="error_message_body">Die bladsy kon nie gelaai word nie. Probeer weer.</string>
+    <string name="btn_retry">Probeer weer</string>
+</resources>

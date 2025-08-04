@@ -1,13 +1,18 @@
 package com.example.projectkt.components
 
+import android.util.Log
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalInspectionMode
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.projectkt.R
 import com.example.projectkt.ui.theme.ProjectktTheme
 
 @Composable
@@ -22,10 +27,22 @@ fun EmptyState(modifier: Modifier = Modifier) {
                 modifier = modifier
             )
         } else {
-            Text(
-                text = "Oops, there is nothing to display here!",
-                modifier = modifier
-            )
+            Column(
+                modifier = modifier,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text(
+                    text = stringResource(id = R.string.error_message_header),
+                )
+                Text(
+                    text = stringResource(id = R.string.error_message_body),
+                )
+                TextButton(onClick = {
+                    Log.d("EmptyState", "Retry button pressed")
+                }) {
+                    Text(text = stringResource(id = R.string.btn_retry))
+                }
+            }
         }
     }
 }

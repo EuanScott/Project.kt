@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="loading">Laster…</string>
+    <string name="error_message_header">Kan ikke koble til</string>
+    <string name="error_message_body">Siden kunne ikke lastes. Prøv igjen.</string>
+    <string name="btn_retry">Prøv igjen</string>
+</resources>

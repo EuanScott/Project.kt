@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">The Forge</string>
+    <string name="app_name" translatable="false">The Forge</string>
+    <string name="loading">Loading…</string>
+    <string name="error_message_header">Cannot Connect</string>
+    <string name="error_message_body">The page couldn\'t be loaded. Try again.</string>
+    <string name="btn_retry">Retry</string>
 </resources>
