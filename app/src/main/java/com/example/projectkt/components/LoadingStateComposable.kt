@@ -30,7 +30,6 @@ fun LoadingState(modifier: Modifier = Modifier) {
                 color = MaterialTheme.colorScheme.primary,
                 strokeWidth = 4.dp
             )
-            Spacer(modifier = Modifier.height(16.dp))
             Text(
                 text = stringResource(id = R.string.loading),
                 modifier = modifier

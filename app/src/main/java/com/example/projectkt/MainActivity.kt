@@ -1,6 +1,7 @@
 package com.example.projectkt
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -8,26 +9,27 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.projectkt.components.EmptyState
 import com.example.projectkt.components.LoadingState
 import com.example.projectkt.ui.theme.ProjectktTheme
+import dagger.hilt.android.AndroidEntryPoint
 
-enum class UiState {
-    Loading,
-    Error,
-    Empty,
-    DataRetrieved
-}
-
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             ProjectktTheme {
+                val viewModel: MainViewModel = hiltViewModel()
+
+                Log.d("MainActivity", "ViewModel instance received in UI.")
+
                 MainScreen()
             }
         }
@@ -35,20 +37,15 @@ class MainActivity : ComponentActivity() {
 
 
     @Composable
-    fun MainScreen() {
-        // Hard-coded state to simulate different UI states
-        val currentState = remember { UiState.Empty } // Change this to test different states
+    fun MainScreen(viewModel: MainViewModel = hiltViewModel()) {
+        val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
         Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-            when (currentState) {
-                UiState.Loading -> LoadingState(modifier = Modifier.padding(innerPadding))
-                UiState.Error -> {
-                    // TODO: Empty State
-                }
-
-                UiState.Empty -> EmptyState(modifier = Modifier.padding(innerPadding))
-                UiState.DataRetrieved -> {
-                    // TODO: DataRetrieved State
+            when (uiState) {
+                MainUiState.Loading -> LoadingState(modifier = Modifier.padding(innerPadding))
+                MainUiState.Error -> EmptyState(modifier = Modifier.padding(innerPadding))
+                MainUiState.Success -> {
+                    // TODO: Success State
                 }
             }
         }
