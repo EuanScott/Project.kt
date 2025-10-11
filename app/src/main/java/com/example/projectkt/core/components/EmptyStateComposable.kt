@@ -1,4 +1,4 @@
-package com.example.projectkt.components
+package com.example.projectkt.core.components
 
 import android.util.Log
 import androidx.compose.foundation.layout.Box
