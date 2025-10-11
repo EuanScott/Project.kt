@@ -1,0 +1,119 @@
+# Project Structure
+
+- Date: [2025-10-11]
+- Status: Decided
+
+## Rationale
+
+The initial flat project structure is not scalable for an application intended to grow. As new
+features are added, this leads to low cohesion (related code is scattered across different packages)
+and high coupling (features become intertwined and dependent on each other). This makes the codebase
+difficult to navigate, maintain, and test. We require a standardized architecture that promotes
+modularity and a clear separation of concerns from the outset.
+
+## Decision
+
+We will adopt a hybrid architecture that organizes the UI layer by feature while centralizing shared
+business logic and data access in a common core layer. This structure is a pragmatic implementation
+of Clean Architecture principles.
+
+The project will be divided into two primary top-level packages, broken down further as follows:
+
+1. features Package (UI Layer)
+
+This package represents the UI Layer of the application. It is organized by distinct features, where
+each sub-package contains all the code necessary for that specific feature's user interface and
+presentation logic.
+
+    Purpose: To display data to the user, capture user input, and manage UI-specific state.
+    Structure: Each sub-package (e.g., login, dashboard, settings) is a self-contained vertical slice, typically containing:
+        [FeatureName]Screen.kt: The Jetpack Compose UI for the feature.
+        [FeatureName]ViewModel.kt: The ViewModel responsible for preparing data for the UI and handling UI-related logic.
+        [FeatureName]UiState.kt: Sealed class/interface defining the various states of the UI (e.g., Loading, Success, Error).
+    Dependencies: Features primarily depend on the core/domain layer for business logic and data contracts. They should not directly depend on other features or the core/data layer.
+
+2. core Package (Domain & Data Layers)
+
+This package represents the Domain Layer and Data Layer of the application. It contains all the
+foundational, shared, and reusable components that are independent of any specific UI feature. This
+layer is designed to be highly testable and framework-agnostic where possible.
+
+    Purpose: To encapsulate the application's business rules, manage data access, and provide a single source of truth for shared application state.
+    Structure:
+        core/domain: The Domain Layer.
+            model: Contains pure Kotlin data classes that represent the clean, canonical business objects of the application (e.g., UserProfile, DashboardItem). These models are consumed by the UI layer.
+            repository: Contains interfaces (contracts) that define what data operations are available (e.g., UserProfileRepository, DashboardRepository). These interfaces are implemented by the data layer and consumed by ViewModels in the features layer.
+            (Optional) usecase: Contains classes that encapsulate specific, complex business logic or orchestrate multiple repository calls (e.g., GetAuthenticatedUserProfileUseCase).
+        core/data: The Data Layer.
+            remote: Contains code related to external data sources, such as network API service definitions (e.g., Retrofit interfaces), DTOs (Data Transfer Objects) for network responses, and network client configurations.
+            local: Contains code related to local data sources, such as database DAOs (Data Access Objects), local data models (entities), and preferences management (e.g., DataStore).
+            repository: Contains concrete implementations of the repository interfaces defined in core/domain. These implementations are responsible for fetching, storing, and managing data from one or more data sources (remote, local) and mapping it to the domain layer's models.
+        core/di: Contains Hilt modules responsible for providing and binding dependencies within the core layer (e.g., NetworkModule, AppModule for repository bindings).
+        core/components: Contains highly reusable, generic Jetpack Compose UI components that are not tied to any specific feature (e.g., LoadingStateComposable, EmptyStateComposable).
+    Dependencies: The core layer is largely independent. The data layer depends on external libraries (Retrofit, Room) and implements domain interfaces. The domain layer has no Android dependencies.
+
+### Project Structure Hierarchy
+
+```
+com.example.projectkt
+├── MainActivity.kt             // The single Activity, acts as a host for Compose Navigation
+├── MyApplication.kt            // Hilt Application class
+│
+├── core
+│   ├── components              // Reusable, generic UI Composables
+│   │   ├── LoadingStateComposable.kt
+│   │   └── EmptyStateComposable.kt
+│   │
+│   ├── data
+│   │   ├── local               // Local storage implementations (e.g., Room DAOs, DataStore)
+│   │   │   └── [LocalDataDao].kt
+│   │   │
+│   │   ├── remote              // Network API definitions (e.g., Retrofit interfaces, DTOs)
+│   │   │   ├── [ApiService].kt
+│   │   │   └── dto
+│   │   │       └── [ApiDto].kt
+│   │   │
+│   │   └── repository          // Concrete implementations of domain repositories
+│   │       └── [DomainRepository]Impl.kt
+│   │
+│   ├── domain
+│   │   ├── model               // Clean, framework-agnostic data models
+│   │   │   └── [DomainModel].kt
+│   │   │
+│   │   └── repository          // Interfaces defining data operations
+│   │       └── [DomainRepository].kt
+│   │
+│   └── di                      // Hilt modules for core dependencies (e.g., network, database)
+│       ├── AppModule.kt
+│       └── NetworkModule.kt
+│
+└── features
+    └── [feature_name]          // A distinct, self-contained UI feature
+        ├── [FeatureName]Screen.kt
+        ├── [FeatureName]ViewModel.kt
+        └── [FeatureName]UiState.kt
+
+```
+
+## Consequences
+
+### Positive (What becomes easier)
+
+- **Scalability:** Adding a new feature is a clear, repeatable process: create a new package under
+  features.
+- **Maintainability:** Code is easy to locate as all files related to a single feature are grouped
+  together (high cohesion).
+- **Decoupling:** Features are isolated from one another. They communicate only through the core
+  layer, preventing them from becoming intertwined.
+- **Testability:** The separation of concerns makes each layer easier to test in isolation. The
+  domain layer, being pure Kotlin, can be unit tested without the Android framework.
+- **Flexibility:** The data source implementation can be changed (e.g., swapping an HTTP client)
+  within the data layer without affecting any of the features that depend on it.
+- **Onboarding:** New team members can quickly understand the project's organization and locate relevant code due to the consistent and predictable structure.
+
+### Negative (What becomes more difficult)
+
+- **Increased Boilerplate:** This structure requires more upfront setup and file creation compared
+  to a simple flat model.
+- **Requires Discipline:** Developers must strictly adhere to the architectural boundaries (e.g., a
+  feature must not directly access a data source; it must go through a domain repository).

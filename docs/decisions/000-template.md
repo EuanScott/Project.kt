@@ -1,10 +1,8 @@
 # [short title]
-- Date: [YYYY-MM-DD when the decision was last updated]
+- Date: [YYYY-MM-DD]
+- Status: [Draft, In Discussion, Decided, Implemented, Abandoned, Superseded]
 
-## Status
-Draft, In Discussion, Decided, Implemented, Abandoned, Superseded
-
-## Raionale
+## Rationale
 What is the issue that we're seeing that is motivating this decision or change?
 
 ## Decision
