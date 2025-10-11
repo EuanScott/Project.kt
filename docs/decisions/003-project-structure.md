@@ -109,7 +109,8 @@ com.example.projectkt
   domain layer, being pure Kotlin, can be unit tested without the Android framework.
 - **Flexibility:** The data source implementation can be changed (e.g., swapping an HTTP client)
   within the data layer without affecting any of the features that depend on it.
-- **Onboarding:** New team members can quickly understand the project's organization and locate relevant code due to the consistent and predictable structure.
+- **Onboarding:** New team members can quickly understand the project's organization and locate
+  relevant code due to the consistent and predictable structure.
 
 ### Negative (What becomes more difficult)
 
