@@ -1,4 +1,4 @@
-package com.example.projectkt.features.dashboard
+package com.example.projectkt.features.profile
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,10 +10,10 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class DashboardViewModel @Inject constructor() : ViewModel() {
+class ProfileViewModel @Inject constructor() : ViewModel() {
 
     // Private mutable state that can be changed only within the ViewModel
-    private val _uiState = MutableStateFlow<DashboardUiState>(DashboardUiState.Loading)
+    private val _uiState = MutableStateFlow<ProfileUiState>(ProfileUiState.Loading)
 
     // Public immutable state that the UI can observe
     val uiState = _uiState.asStateFlow()
@@ -25,7 +25,7 @@ class DashboardViewModel @Inject constructor() : ViewModel() {
     private fun mockDataFetch() {
         viewModelScope.launch {
             delay(2000)
-            _uiState.value = DashboardUiState.Success
+            _uiState.value = ProfileUiState.Success
         }
     }
 }

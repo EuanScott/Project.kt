@@ -4,4 +4,8 @@
     <string name="error_message_header">Kan ikke koble til</string>
     <string name="error_message_body">Siden kunne ikke lastes. Prøv igjen.</string>
     <string name="btn_retry">Prøv igjen</string>
+    <string name="btn_profile">Profil</string>
+    <string name="btn_dashboard">Dashbord</string>
+    <string name="btn_project_tracker">Prosjektoversikt</string>
+    <string name="btn_daily_log">Dagsjournal</string>
 </resources>

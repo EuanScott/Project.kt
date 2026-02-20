@@ -4,4 +4,8 @@
     <string name="error_message_header">Kan nie verbind nie</string>
     <string name="error_message_body">Die bladsy kon nie gelaai word nie. Probeer weer.</string>
     <string name="btn_retry">Probeer weer</string>
+    <string name="btn_profile">Profiel</string>
+    <string name="btn_dashboard">Paneelbord</string>
+    <string name="btn_project_tracker">Projekspoorder</string>
+    <string name="btn_daily_log">Daaglikse Logboek</string>
 </resources>

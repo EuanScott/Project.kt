@@ -1,9 +1,9 @@
-package com.example.projectkt.features.dashboard
+package com.example.projectkt.features.profile
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Button
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -18,24 +18,25 @@ import com.example.projectkt.core.components.LoadingState
 import com.example.projectkt.ui.theme.ProjectktTheme
 
 @Composable
-fun DashboardScreen(
+fun ProfileScreen(
+    onNavigateBack: () -> Unit,
     modifier: Modifier = Modifier,
-    viewModel: DashboardViewModel = hiltViewModel()
+    viewModel: ProfileViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     when (uiState) {
-        DashboardUiState.Loading -> LoadingState(modifier = modifier)
-        DashboardUiState.Error -> EmptyState(modifier = modifier)
-        DashboardUiState.Success -> {
+        ProfileUiState.Loading -> LoadingState(modifier = modifier)
+        ProfileUiState.Error -> EmptyState(modifier = modifier)
+        ProfileUiState.Success -> {
             Box(
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
             ) {
-                Button(onClick = {
-                    print("Open up profile modal")
+                TextButton(onClick = {
+                    onNavigateBack()
                 }) {
-                    Text(text = stringResource(id = R.string.btn_profile))
+                    Text(text = stringResource(id = R.string.btn_dashboard))
                 }
             }
         }
@@ -44,8 +45,8 @@ fun DashboardScreen(
 
 @Preview(showBackground = true, device = "id:pixel_tablet", showSystemUi = true)
 @Composable
-fun DashboardScreenPreview() {
+fun ProfileScreenPreview() {
     ProjectktTheme {
-        DashboardScreen()
+        ProfileScreen(onNavigateBack = {})
     }
 }

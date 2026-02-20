@@ -2,6 +2,10 @@
     <string name="app_name" translatable="false">The Forge</string>
     <string name="loading">Loading…</string>
     <string name="error_message_header">Cannot Connect</string>
-    <string name="error_message_body">The page couldn\'t be loaded. Try again.</string>
+    <string name="error_message_body">The page could not be loaded. Try again.</string>
     <string name="btn_retry">Retry</string>
+    <string name="btn_profile">Profile</string>
+    <string name="btn_dashboard">Dashboard</string>
+    <string name="btn_project_tracker">Project Tracker</string>
+    <string name="btn_daily_log">Daily Log</string>
 </resources>

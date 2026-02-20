@@ -1,8 +1,7 @@
-package com.example.projectkt.features.dashboard
+package com.example.projectkt.features.dailyLog
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -18,25 +17,21 @@ import com.example.projectkt.core.components.LoadingState
 import com.example.projectkt.ui.theme.ProjectktTheme
 
 @Composable
-fun DashboardScreen(
+fun DailyLogScreen(
     modifier: Modifier = Modifier,
-    viewModel: DashboardViewModel = hiltViewModel()
+    viewModel: DailyLogViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     when (uiState) {
-        DashboardUiState.Loading -> LoadingState(modifier = modifier)
-        DashboardUiState.Error -> EmptyState(modifier = modifier)
-        DashboardUiState.Success -> {
+        DailyLogUiState.Loading -> LoadingState(modifier = modifier)
+        DailyLogUiState.Error -> EmptyState(modifier = modifier)
+        DailyLogUiState.Success -> {
             Box(
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
             ) {
-                Button(onClick = {
-                    print("Open up profile modal")
-                }) {
-                    Text(text = stringResource(id = R.string.btn_profile))
-                }
+                Text(stringResource(R.string.btn_daily_log))
             }
         }
     }
@@ -44,8 +39,8 @@ fun DashboardScreen(
 
 @Preview(showBackground = true, device = "id:pixel_tablet", showSystemUi = true)
 @Composable
-fun DashboardScreenPreview() {
+fun DailyLogScreenPreview() {
     ProjectktTheme {
-        DashboardScreen()
+        DailyLogScreen()
     }
 }
