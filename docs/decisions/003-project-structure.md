@@ -1,7 +1,7 @@
 # Project Structure
 
-- Date: [2025-10-11]
-- Status: Decided
+**Status: Decided**
+**Date: *2025/10/11**
 
 ## Rationale
 

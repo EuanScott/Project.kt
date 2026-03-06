@@ -1,9 +1,9 @@
 # App Architecture
 
-**Status: Decided**
-**Date: *2025/07/20***
+**Status: Decided**  
+**Date: 2025/07/20**
 
-## Raionale
+## Rationale
 
 Before feature development can begin, a clear and consistent architecture pattern must be chosen to ensure the project
 has a solid technical foundation. This decision will guide how UI state is *managed*, how user interactions are

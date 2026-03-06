@@ -1,6 +1,7 @@
 # [short title]
-- Date: [YYYY-MM-DD]
-- Status: [Draft, In Discussion, Decided, Implemented, Abandoned, Superseded]
+
+**Status: [Draft, In Discussion, Decided, Implemented, Abandoned, Superseded]**  
+**Date: [YYYY/MM/DD]**
 
 ## Rationale
 What is the issue that we're seeing that is motivating this decision or change?

@@ -1,7 +1,7 @@
 # Dependency Injection
 
-**Status: Decided**
-**Date: *2025/08/11***
+**Status: Decided**  
+**Date: 2025/08/11**
 
 ## Rationale
 
