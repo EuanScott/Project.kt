@@ -13,7 +13,7 @@ import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.projectkt.R
-import com.example.projectkt.ui.theme.ProjectktTheme
+import com.example.projectkt.core.ui.theme.AppTheme
 
 @Composable
 fun EmptyState(modifier: Modifier = Modifier) {
@@ -51,7 +51,7 @@ fun EmptyState(modifier: Modifier = Modifier) {
 @Preview(showBackground = true, device = "id:pixel_tablet", showSystemUi = true)
 @Composable
 fun EmptyStatePreview() {
-    ProjectktTheme {
+    AppTheme {
         EmptyState()
     }
 }

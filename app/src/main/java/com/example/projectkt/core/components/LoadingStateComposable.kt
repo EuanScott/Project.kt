@@ -13,7 +13,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.projectkt.R
-import com.example.projectkt.ui.theme.ProjectktTheme
+import com.example.projectkt.core.ui.theme.AppTheme
 
 @Composable
 fun LoadingState(modifier: Modifier = Modifier) {
@@ -39,7 +39,7 @@ fun LoadingState(modifier: Modifier = Modifier) {
 @Preview(showBackground = true, device = "id:pixel_tablet", showSystemUi = true)
 @Composable
 fun LoadingStatePreview() {
-    ProjectktTheme {
+    AppTheme {
         LoadingState()
     }
 }

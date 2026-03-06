@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.projectkt.R
-import com.example.projectkt.ui.theme.ProjectktTheme
+import com.example.projectkt.core.ui.theme.AppTheme
 
 /**
  * Reusable TopAppBar component for the application.
@@ -49,10 +49,10 @@ fun AppBar(
         },
         actions = actions,
         colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = MaterialTheme.colorScheme.primary,
-            titleContentColor = MaterialTheme.colorScheme.onSecondary,
-            navigationIconContentColor = MaterialTheme.colorScheme.onSecondary,
-            actionIconContentColor = MaterialTheme.colorScheme.onSecondary
+            containerColor = MaterialTheme.colorScheme.surface,
+            titleContentColor = MaterialTheme.colorScheme.onSurface,
+            navigationIconContentColor = MaterialTheme.colorScheme.onSurface,
+            actionIconContentColor = MaterialTheme.colorScheme.onSurface
         )
     )
 }
@@ -60,7 +60,7 @@ fun AppBar(
 @Preview(showBackground = true)
 @Composable
 fun AppBarPreview_Menu() {
-    ProjectktTheme {
+    AppTheme {
         AppBar(
             title = R.string.btn_dashboard,
             navigationIcon = Icons.Default.Menu,
