@@ -29,7 +29,7 @@ import com.example.projectkt.ui.theme.ProjectktTheme
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ProjectAppBar(
+fun AppBar(
     title: Int,
     modifier: Modifier = Modifier,
     navigationIcon: ImageVector,
@@ -40,13 +40,11 @@ fun ProjectAppBar(
         title = { Text(text = stringResource(id = title)) },
         modifier = modifier,
         navigationIcon = {
-            if (navigationIcon != null && onNavigationIconClick != null) {
-                IconButton(onClick = onNavigationIconClick) {
-                    Icon(
-                        imageVector = navigationIcon,
-                        contentDescription = "Navigation icon"
-                    )
-                }
+            IconButton(onClick = onNavigationIconClick) {
+                Icon(
+                    imageVector = navigationIcon,
+                    contentDescription = "Navigation icon"
+                )
             }
         },
         actions = actions,
@@ -61,9 +59,9 @@ fun ProjectAppBar(
 
 @Preview(showBackground = true)
 @Composable
-fun ProjectAppBarPreview_Menu() {
+fun AppBarPreview_Menu() {
     ProjectktTheme {
-        ProjectAppBar(
+        AppBar(
             title = R.string.btn_dashboard,
             navigationIcon = Icons.Default.Menu,
             onNavigationIconClick = { /* no-op for preview */ }

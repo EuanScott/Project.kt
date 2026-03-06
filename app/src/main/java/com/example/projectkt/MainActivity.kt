@@ -17,10 +17,9 @@ import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.projectkt.core.components.ProjectAppBar
+import com.example.projectkt.core.components.AppBar
 import com.example.projectkt.features.AppDrawerContent
 import com.example.projectkt.ui.theme.ProjectktTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -35,29 +34,12 @@ class MainActivity : ComponentActivity() {
         setContent {
             ProjectktTheme {
                 val navController = rememberNavController()
-                val drawerState = rememberDrawerState(DrawerValue.Closed)
-                val scope = rememberCoroutineScope()
-
                 val currentBackStackEntry by navController.currentBackStackEntryAsState()
                 val currentRoute = currentBackStackEntry?.destination?.route
 
+                val drawerState = rememberDrawerState(DrawerValue.Closed)
 
-                val navigateTopLevel: (String) -> Unit = { route ->
-                    navController.navigate(route) {
-                        // Pop up to the start destination of the graph to
-                        // avoid building up a large stack of destinations
-                        // on the back stack as users select items
-                        popUpTo(navController.graph.findStartDestination().id) {
-                            saveState = true
-                        }
-                        // Avoid multiple copies of the same destination when
-                        // re-selecting the same item
-                        launchSingleTop = true
-                        // Restore state when re-selecting a previously selected item
-                        restoreState = true
-                    }
-                }
-
+                val scope = rememberCoroutineScope()
 
                 Row(Modifier.fillMaxSize()) {
                     ModalNavigationDrawer(
@@ -71,7 +53,9 @@ class MainActivity : ComponentActivity() {
 
                                         navController.navigate(route) {
                                             // Keep a single instance of each top-level destination
-                                            popUpTo(navController.graph.startDestinationId) { saveState = true }
+                                            popUpTo(navController.graph.startDestinationId) {
+                                                saveState = true
+                                            }
                                             launchSingleTop = true
                                             restoreState = true
                                         }
@@ -82,7 +66,7 @@ class MainActivity : ComponentActivity() {
                     ) {
                         Scaffold(
                             topBar = {
-                                ProjectAppBar(
+                                AppBar(
                                     title = getTitle(currentRoute),
                                     navigationIcon = Icons.Default.Menu,
                                     onNavigationIconClick = {
