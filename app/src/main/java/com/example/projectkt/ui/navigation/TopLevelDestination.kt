@@ -12,9 +12,10 @@ import com.example.projectkt.DailyLog
 import com.example.projectkt.Dashboard
 import com.example.projectkt.ProjectTracker
 import com.example.projectkt.R
+
 enum class TopLevelDestination(
     val route: Any,
-    @StringRes val labelRes: Int,
+    @param:StringRes val labelRes: Int,
     val icon: ImageVector
 ) {
     DASHBOARD(
@@ -38,5 +39,4 @@ enum class TopLevelDestination(
             return entries.find { navDestination?.hasRoute(it.route::class) == true }
         }
     }
-
 }
