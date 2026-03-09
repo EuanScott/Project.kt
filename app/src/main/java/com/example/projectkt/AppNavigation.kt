@@ -1,54 +1,47 @@
 package com.example.projectkt
 
+import androidx.annotation.StringRes
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
 import com.example.projectkt.features.dailyLog.DailyLogScreen
 import com.example.projectkt.features.dashboard.DashboardScreen
 import com.example.projectkt.features.projectTracker.ProjectTrackerScreen
+import kotlinx.serialization.Serializable
 
-/**
- * Defines the routes for the application's navigation graph.
- */
-object AppRoutes {
-    const val DASHBOARD = "dashboard"
-    const val DAILY_LOG = "daily_log"
-    const val PROJECT_TRACKER = "project_tracker"
-}
+@Serializable
+sealed interface AppRoute
 
-/**
- * The main navigation graph for the application.
- * This Composable hosts all the different screens and manages navigation between them.
- */
+@Serializable
+data object Dashboard : AppRoute
+
+@Serializable
+data object DailyLog : AppRoute
+
+@Serializable
+data object ProjectTracker : AppRoute
+
+
 @Composable
 fun AppNavigation(
-    modifier: Modifier = Modifier,
-    navController: NavHostController = rememberNavController(),
-    startDestination: String = AppRoutes.DASHBOARD
+    navController: NavHostController,
+    modifier: Modifier = Modifier
 ) {
     NavHost(
         navController = navController,
-        startDestination = startDestination,
+        startDestination = Dashboard,
         modifier = modifier
     ) {
-        composable(AppRoutes.DASHBOARD) {
-            DashboardScreen()
-        }
-        composable(AppRoutes.PROJECT_TRACKER) {
-            ProjectTrackerScreen()
-        }
-        composable(AppRoutes.DAILY_LOG) {
-            DailyLogScreen()
-        }
-//        TODO: Make this a side drawer
-//        composable(AppRoutes.PROFILE) {
-//            ProfileScreen(
-//                onNavigateBack = { navController.popBackStack() }
-//            )
-//        }
-
+        composable<Dashboard> { DashboardScreen() }
+        composable<DailyLog> { DailyLogScreen() }
+        composable<ProjectTracker> { ProjectTrackerScreen() }
     }
 }
