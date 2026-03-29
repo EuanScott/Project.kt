@@ -1,11 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Prefixing Convention:
+    [feature]_[type]_[description]
+-->
 <resources>
-    <string name="app_name" translatable="false">The Forge</string>
-    <string name="loading">Loading…</string>
-    <string name="error_message_header">Cannot Connect</string>
-    <string name="error_message_body">The page could not be loaded. Try again.</string>
-    <string name="btn_retry">Retry</string>
-    <string name="btn_profile">Profile</string>
-    <string name="btn_dashboard">Dashboard</string>
-    <string name="btn_project_tracker">Project Tracker</string>
-    <string name="btn_daily_log">Daily Log</string>
+    <!-- Common / Generic -->
+    <string name="common_app_name" translatable="false">The Forge</string>
+    <string name="common_btn_retry">Retry</string>
+    <string name="common_error_header">Error</string>
+    <string name="common_error_body">The page could not be loaded. Please, try again.</string>
+    <string name="common_loading">Loading…</string>
+
+    <!-- Navigation / Headers -->
+    <string name="nav_header_profile">Profile</string>
+    <string name="nav_header_dashboard">Dashboard</string>
+    <string name="nav_header_project_tracker">Project Tracker</string>
+    <string name="nav_header_daily_log">Daily Log</string>
 </resources>

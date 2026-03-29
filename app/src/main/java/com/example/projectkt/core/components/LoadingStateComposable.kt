@@ -29,7 +29,7 @@ fun LoadingState(modifier: Modifier = Modifier) {
                 strokeWidth = 4.dp
             )
             Text(
-                text = stringResource(id = R.string.loading),
+                text = stringResource(id = R.string.common_loading),
                 modifier = modifier
             )
         }

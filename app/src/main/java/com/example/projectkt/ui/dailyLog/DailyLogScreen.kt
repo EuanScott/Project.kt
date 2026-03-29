@@ -31,7 +31,7 @@ fun DailyLogScreen(
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
             ) {
-                Text(stringResource(R.string.btn_daily_log))
+                Text(stringResource(R.string.nav_header_daily_log))
             }
         }
     }

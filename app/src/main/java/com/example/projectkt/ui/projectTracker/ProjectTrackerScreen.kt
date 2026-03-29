@@ -31,7 +31,7 @@ fun ProjectTrackerScreen(
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
             ) {
-                Text(stringResource(R.string.btn_project_tracker))
+                Text(stringResource(R.string.nav_header_project_tracker))
             }
         }
     }

@@ -35,7 +35,7 @@ fun DashboardScreen(
                 Button(onClick = {
                     print("Open up profile modal")
                 }) {
-                    Text(text = stringResource(id = R.string.btn_profile))
+                    Text(text = stringResource(id = R.string.nav_header_profile))
                 }
             }
         }

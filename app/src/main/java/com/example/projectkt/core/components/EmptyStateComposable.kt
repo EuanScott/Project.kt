@@ -32,15 +32,15 @@ fun EmptyState(modifier: Modifier = Modifier) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = stringResource(id = R.string.error_message_header),
+                    text = stringResource(id = R.string.common_error_header),
                 )
                 Text(
-                    text = stringResource(id = R.string.error_message_body),
+                    text = stringResource(id = R.string.common_error_body),
                 )
                 TextButton(onClick = {
                     Log.d("EmptyState", "Retry button pressed")
                 }) {
-                    Text(text = stringResource(id = R.string.btn_retry))
+                    Text(text = stringResource(id = R.string.common_btn_retry))
                 }
             }
         }

@@ -36,7 +36,7 @@ fun ProfileScreen(
                 TextButton(onClick = {
                     onNavigateBack()
                 }) {
-                    Text(text = stringResource(id = R.string.btn_dashboard))
+                    Text(text = stringResource(id = R.string.nav_header_dashboard))
                 }
             }
         }

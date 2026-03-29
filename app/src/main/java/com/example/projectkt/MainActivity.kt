@@ -40,7 +40,7 @@ class MainActivity : ComponentActivity() {
                 val scope = rememberCoroutineScope()
 
                 val currentTopLevel = TopLevelDestination.findByNavDestination(currentDestination)
-                val titleRes = currentTopLevel?.labelRes ?: R.string.app_name
+                val titleRes = currentTopLevel?.labelRes ?: R.string.common_app_name
 
                 DismissibleNavigationDrawer(
                     drawerState = drawerState,

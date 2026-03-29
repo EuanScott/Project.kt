@@ -26,17 +26,17 @@ enum class TopLevelDestination(
 ) {
     DASHBOARD(
         route = Dashboard,
-        labelRes = R.string.btn_dashboard,
+        labelRes = R.string.nav_header_dashboard,
         icon = Icons.Default.Home
     ),
     DAILY_LOG(
         route = DailyLog,
-        labelRes = R.string.btn_daily_log,
+        labelRes = R.string.nav_header_daily_log,
         icon = Icons.Default.Edit
     ),
     PROJECT_TRACKER(
         route = ProjectTracker,
-        labelRes = R.string.btn_project_tracker,
+        labelRes = R.string.nav_header_project_tracker,
         icon = Icons.Default.LocationOn
     );
 

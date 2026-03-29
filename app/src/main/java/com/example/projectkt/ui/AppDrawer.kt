@@ -29,7 +29,7 @@ fun AppDrawerContent(
             modifier = Modifier.padding(horizontal = 16.dp, vertical = 20.dp)
         ) {
             Text(
-                text = stringResource(id = R.string.app_name),
+                text = stringResource(id = R.string.common_app_name),
                 style = MaterialTheme.typography.titleLarge,
                 modifier = Modifier.weight(1f)
             )

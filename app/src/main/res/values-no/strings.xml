@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    Prefixing Convention:
+    [feature]_[type]_[description]
+-->
 <resources>
-    <string name="loading">Laster…</string>
-    <string name="error_message_header">Kan ikke koble til</string>
-    <string name="error_message_body">Siden kunne ikke lastes. Prøv igjen.</string>
-    <string name="btn_retry">Prøv igjen</string>
-    <string name="btn_profile">Profil</string>
-    <string name="btn_dashboard">Dashbord</string>
-    <string name="btn_project_tracker">Prosjektoversikt</string>
-    <string name="btn_daily_log">Dagsjournal</string>
+    <!-- Common / Generic -->
+    <string name="common_btn_retry">Prøv igjen</string>
+    <string name="common_error_header">Noe er feil</string>
+    <string name="common_error_body">Siden kunne ikke lastes. Vær så snill prøv igjen.</string>
+    <string name="common_loading">Laster…</string>
+
+
+    <!-- Navigation / Headers -->
+    <string name="nav_header_profile">Profil</string>
+    <string name="nav_header_dashboard">Dashbord</string>
+    <string name="nav_header_project_tracker">Prosjektoversikt</string>
+    <string name="nav_header_daily_log">Dagsjournal</string>
 </resources>
