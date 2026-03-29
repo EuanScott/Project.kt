@@ -25,7 +25,7 @@ class ProjectTrackerViewModel @Inject constructor() : ViewModel() {
     private fun mockDataFetch() {
         viewModelScope.launch {
             delay(2000)
-            _uiState.value = ProjectTrackerUiState.Success
+            _uiState.value = ProjectTrackerUiState.Error
         }
     }
 }

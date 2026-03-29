@@ -63,6 +63,9 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.material.icons.extended)
 
+    // UI
+    implementation(libs.androidx.appcompat)
+
     // Navigation (Type-Safe 2.8.0+)
     implementation(libs.androidx.navigation.compose)
 
