@@ -1,4 +1,4 @@
-package com.example.projectkt.features.dashboard
+package com.example.projectkt.ui.dashboard
 
 sealed interface DashboardUiState {
     data object Loading : DashboardUiState

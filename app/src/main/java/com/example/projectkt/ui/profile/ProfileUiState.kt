@@ -1,4 +1,4 @@
-package com.example.projectkt.features.profile
+package com.example.projectkt.ui.profile
 
 sealed interface ProfileUiState {
     data object Loading : ProfileUiState

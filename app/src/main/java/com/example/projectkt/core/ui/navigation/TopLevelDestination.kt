@@ -1,4 +1,4 @@
-package com.example.projectkt.ui.navigation
+package com.example.projectkt.core.ui.navigation
 
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
@@ -12,6 +12,12 @@ import com.example.projectkt.DailyLog
 import com.example.projectkt.Dashboard
 import com.example.projectkt.ProjectTracker
 import com.example.projectkt.R
+
+
+// TODO: Get the UI looking good here (make sidemenu an overlay rather than pushing out the page)
+// TODO: Ensure that everything is done as per the ADR
+// TODO: Add in tests for this
+// TODO: Create the profile side-sheet
 
 enum class TopLevelDestination(
     val route: Any,

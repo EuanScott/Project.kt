@@ -1,8 +1,9 @@
-package com.example.projectkt.features.dailyLog
+package com.example.projectkt.ui.profile
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -17,21 +18,26 @@ import com.example.projectkt.core.components.LoadingState
 import com.example.projectkt.core.ui.theme.AppTheme
 
 @Composable
-fun DailyLogScreen(
+fun ProfileScreen(
+    onNavigateBack: () -> Unit,
     modifier: Modifier = Modifier,
-    viewModel: DailyLogViewModel = hiltViewModel()
+    viewModel: ProfileViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     when (uiState) {
-        DailyLogUiState.Loading -> LoadingState(modifier = modifier)
-        DailyLogUiState.Error -> EmptyState(modifier = modifier)
-        DailyLogUiState.Success -> {
+        ProfileUiState.Loading -> LoadingState(modifier = modifier)
+        ProfileUiState.Error -> EmptyState(modifier = modifier)
+        ProfileUiState.Success -> {
             Box(
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
             ) {
-                Text(stringResource(R.string.btn_daily_log))
+                TextButton(onClick = {
+                    onNavigateBack()
+                }) {
+                    Text(text = stringResource(id = R.string.btn_dashboard))
+                }
             }
         }
     }
@@ -39,8 +45,8 @@ fun DailyLogScreen(
 
 @Preview(showBackground = true, device = "id:pixel_tablet", showSystemUi = true)
 @Composable
-fun DailyLogScreenPreview() {
+fun ProfileScreenPreview() {
     AppTheme {
-        DailyLogScreen()
+        ProfileScreen(onNavigateBack = {})
     }
 }

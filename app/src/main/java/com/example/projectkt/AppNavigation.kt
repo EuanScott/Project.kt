@@ -5,9 +5,9 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.projectkt.features.dailyLog.DailyLogScreen
-import com.example.projectkt.features.dashboard.DashboardScreen
-import com.example.projectkt.features.projectTracker.ProjectTrackerScreen
+import com.example.projectkt.ui.dailyLog.DailyLogScreen
+import com.example.projectkt.ui.dashboard.DashboardScreen
+import com.example.projectkt.ui.projectTracker.ProjectTrackerScreen
 import kotlinx.serialization.Serializable
 
 @Serializable

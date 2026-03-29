@@ -1,4 +1,4 @@
-package com.example.projectkt.features.projectTracker
+package com.example.projectkt.ui.projectTracker
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize

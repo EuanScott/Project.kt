@@ -1,9 +1,9 @@
-package com.example.projectkt.features.profile
+package com.example.projectkt.ui.dashboard
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -18,25 +18,24 @@ import com.example.projectkt.core.components.LoadingState
 import com.example.projectkt.core.ui.theme.AppTheme
 
 @Composable
-fun ProfileScreen(
-    onNavigateBack: () -> Unit,
+fun DashboardScreen(
     modifier: Modifier = Modifier,
-    viewModel: ProfileViewModel = hiltViewModel()
+    viewModel: DashboardViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     when (uiState) {
-        ProfileUiState.Loading -> LoadingState(modifier = modifier)
-        ProfileUiState.Error -> EmptyState(modifier = modifier)
-        ProfileUiState.Success -> {
+        DashboardUiState.Loading -> LoadingState(modifier = modifier)
+        DashboardUiState.Error -> EmptyState(modifier = modifier)
+        DashboardUiState.Success -> {
             Box(
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
             ) {
-                TextButton(onClick = {
-                    onNavigateBack()
+                Button(onClick = {
+                    print("Open up profile modal")
                 }) {
-                    Text(text = stringResource(id = R.string.btn_dashboard))
+                    Text(text = stringResource(id = R.string.btn_profile))
                 }
             }
         }
@@ -45,8 +44,8 @@ fun ProfileScreen(
 
 @Preview(showBackground = true, device = "id:pixel_tablet", showSystemUi = true)
 @Composable
-fun ProfileScreenPreview() {
+fun DashboardScreenPreview() {
     AppTheme {
-        ProfileScreen(onNavigateBack = {})
+        DashboardScreen()
     }
 }

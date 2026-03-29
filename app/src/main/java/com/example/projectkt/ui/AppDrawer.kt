@@ -1,4 +1,4 @@
-package com.example.projectkt.features
+package com.example.projectkt.ui
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hasRoute
 import com.example.projectkt.R
-import com.example.projectkt.ui.navigation.TopLevelDestination
+import com.example.projectkt.core.ui.navigation.TopLevelDestination
 
 @Composable
 fun AppDrawerContent(

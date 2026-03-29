@@ -19,8 +19,8 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.projectkt.core.components.AppBar
 import com.example.projectkt.core.ui.theme.AppTheme
-import com.example.projectkt.features.AppDrawerContent
-import com.example.projectkt.ui.navigation.TopLevelDestination
+import com.example.projectkt.ui.AppDrawerContent
+import com.example.projectkt.core.ui.navigation.TopLevelDestination
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

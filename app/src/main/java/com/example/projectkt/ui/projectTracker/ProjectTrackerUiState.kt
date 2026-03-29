@@ -1,4 +1,4 @@
-package com.example.projectkt.features.projectTracker
+package com.example.projectkt.ui.projectTracker
 
 sealed interface ProjectTrackerUiState {
     data object Loading : ProjectTrackerUiState

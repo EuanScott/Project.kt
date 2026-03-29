@@ -1,4 +1,4 @@
-package com.example.projectkt.features.profile
+package com.example.projectkt.ui.profile
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
